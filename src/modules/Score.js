@@ -1,16 +1,26 @@
+import dom from './Dom'
 export default class Score {
   constructor() {
     this.score = 0
+    this.username
   }
 
   addPoints() {
     this.score += 100
-    localStorage.setItem('score', this.score)
+    localStorage.setItem(this.username, this.score)
+  }
+
+  setUser() {
+    this.username = dom().phaserGame.name
+  }
+
+  getUser() {
+    return this.username
   }
 
   checkScore() {
     const data = localStorage
-    this.score = data['score'] ? parseInt(data['score']) : 0
+    this.score = data[this.username] ? parseInt(data[this.username]) : 0
   }
 
   getScore() {
