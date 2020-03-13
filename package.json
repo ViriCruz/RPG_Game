@@ -1,0 +1,43 @@
+{
+  "name": "phaser3-turn-based-rpg-game",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "build": "webpack --config webpack/prod.js ",
+    "start": "webpack-dev-server --config webpack/base.js --open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ViriCruz/RPG_Game.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ViriCruz/RPG_Game/issues"
+  },
+  "homepage": "https://github.com/ViriCruz/RPG_Game#readme",
+  "devDependencies": {
+    "@babel/core": "^7.7.2",
+    "@babel/preset-env": "^7.7.1",
+    "babel-loader": "^8.0.6",
+    "clean-webpack-plugin": "^3.0.0",
+    "eslint": "^6.7.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "file-loader": "^4.3.0",
+    "html-webpack-plugin": "^3.2.0",
+    "raw-loader": "^3.1.0",
+    "terser-webpack-plugin": "^2.2.1",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.8.2",
+    "webpack-merge": "^4.2.2"
+  },
+  "dependencies": {
+    "eslint-cli": "^1.1.1",
+    "phaser": "^3.21.0",
+    "eslint-config-airbnb": "^18.0.1"
+  }
+}
