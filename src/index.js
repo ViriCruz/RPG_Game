@@ -3,7 +3,9 @@ import BootScene from './scenes/BootScene';
 import WorldScene from './scenes/WorldScene';
 import BattleScene from './scenes/BattleScene';
 import UIScene from './scenes/UIScene';
+import LeaderboardScene from './scenes/LeaderboardScene'
 import Leaderboard from './modules/Leaderboard'
+
 
 export const config = {
   type: Phaser.AUTO,
@@ -18,10 +20,14 @@ export const config = {
       gravity: { y: 0 }
     }
   },
+  dom: {
+    createContainer: true
+  },
   scene: [
     BootScene,
     WorldScene,
     BattleScene,
+    LeaderboardScene,
     UIScene
   ],
 };
@@ -29,7 +35,12 @@ export const config = {
 const leaderboard = new Leaderboard()
 // leaderboard.postGame()
 // leaderboard.postScore('new user', 5)
-leaderboard.getScores()
+// leaderboard.getScores()
+// .then(resp => console.log(resp.result.sort()))
+// .catch(error => console.log(error)
+// )
+// console.log(leaderboard.scores);
+
 
 const game = new Phaser.Game(config);
 export default game;

@@ -15,6 +15,7 @@ export default class BootScene extends Phaser.Scene {
   }
 
   preload() {
+    
     // map tiles
     this.load.image('tiles', tilesImg);
     // map in json format

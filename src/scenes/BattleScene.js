@@ -89,7 +89,12 @@ export default class BattleScene extends Phaser.Scene {
        //Add score
       this.score.checkScore()
       this.score.addPoints()
+    } else if (gameOver) {
+      this.scene.remove('UIScene')
+      this.scene.remove('WorldScene');
+      this.scene.switch('Leaderboard')
     }
+
     return victory || gameOver;
   }
 

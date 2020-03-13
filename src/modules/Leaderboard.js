@@ -1,6 +1,5 @@
 export default class Leaderboard {
   constructor() {
-    this.leaderboard = []
     this.url = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/'
   }
 
@@ -39,12 +38,10 @@ export default class Leaderboard {
 
   getScores() {
     const endpoint = 'games/hZNLe8ziB8YIZFe3yB6c/scores/'
-    fetch(this.url + endpoint, {
+    return fetch(this.url + endpoint, {
       mode: 'cors',
       method: 'GET'
-    }).then( res => res.json())
-    .catch(error => console.error('Error:', error))
-    .then(response => console.log('Success:', response));
+    }).then( res => res.json());
   }
 
 }
