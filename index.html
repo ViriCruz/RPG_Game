@@ -9,12 +9,19 @@
     <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" rel="stylesheet">
   </head>
   <body>
-    <div id="phaser-example">
+    <div class="container mx-auto d-flex flex-column justify-content-center align-items-center">
+      <div class="my-4">
+        <label for="username">Username: </label>
+        <input id="username" type="text"/>
+        
+        <button class="btn btn-success" id="btnSend" name="btnSend">
+            start game
+        </button>
+      </div>
+      
+      <div id="phaser-example" class="invisible">
+      </div>
     </div>
-    <input id="myText" type="text"/>
     
-    <button class="btn btn-success" id="btnSend" name="btnSend">
-        Send
-    </button>
   </body>
 </html>
