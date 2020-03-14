@@ -2,6 +2,7 @@ import Phaser from 'phaser';
 import PlayerCharacter from '../modules/PlayerCharacter';
 import Enemy from '../modules/Enemy';
 import Score from '../modules/Score'
+import Leaderboard from '../modules/Leaderboard'
 
 export default class BattleScene extends Phaser.Scene {
   constructor() {
@@ -10,6 +11,7 @@ export default class BattleScene extends Phaser.Scene {
 
   create() {
     this.score = new Score()
+    this.leaderboard = new Leaderboard()
     this.playerHp = this.add.text(5, 5, ``, { fontSize: '12px', fill: '#000' });
     this.enemyHp = this.add.text(5, 20, ``, { fontSize: '12px', fill: '#000' });
     // make background green
@@ -92,6 +94,10 @@ export default class BattleScene extends Phaser.Scene {
     } else if (gameOver) {
       this.scene.remove('UIScene')
       this.scene.remove('WorldScene');
+      // this.score.checkScore()
+      // const userScore = this.score.getScore()
+      // const user = this.score.getUser()
+      // this.leaderboard.postScore(user,userScore)
       this.scene.switch('Leaderboard')
     }
 

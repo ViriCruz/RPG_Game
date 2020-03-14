@@ -32,16 +32,20 @@ export default class Leaderboard {
         'Content-Type': 'application/json'
       }
     }).then( res => res.json())
-    .catch(error => console.error('Error:', error))
-    .then(response => console.log('Success:', response));
+    .catch(error => error)
+    .then(response => response);
   }
 
   getScores() {
     const endpoint = 'games/hZNLe8ziB8YIZFe3yB6c/scores/'
+    
     return fetch(this.url + endpoint, {
       mode: 'cors',
       method: 'GET'
-    }).then( res => res.json());
+    })
+    .then(res => res.json())
+    .catch(err => err)
+    
   }
 
 }

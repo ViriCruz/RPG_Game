@@ -1,4 +1,5 @@
 import dom from './Dom'
+
 export default class Score {
   constructor() {
     this.score = 0
@@ -11,7 +12,7 @@ export default class Score {
   }
 
   setUser() {
-    this.username = dom().phaserGame.name
+    this.username = dom().phaserGame.getAttribute('name')
   }
 
   getUser() {
@@ -20,7 +21,8 @@ export default class Score {
 
   checkScore() {
     const data = localStorage
-    this.score = data[this.username] ? parseInt(data[this.username]) : 0
+    this.setUser()
+    this.score = data[this.getUser()] ? parseInt(data[this.getUser()]) : 100
   }
 
   getScore() {

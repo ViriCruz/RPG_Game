@@ -4,7 +4,7 @@ import WorldScene from './scenes/WorldScene';
 import BattleScene from './scenes/BattleScene';
 import UIScene from './scenes/UIScene';
 import LeaderboardScene from './scenes/LeaderboardScene'
-import Leaderboard from './modules/Leaderboard'
+import Dom from './modules/Dom'
 
 
 export const config = {
@@ -32,15 +32,21 @@ export const config = {
   ],
 };
 
-const leaderboard = new Leaderboard()
-// leaderboard.postGame()
-// leaderboard.postScore('new user', 5)
-// leaderboard.getScores()
-// .then(resp => console.log(resp.result.sort()))
-// .catch(error => console.log(error)
-// )
-// console.log(leaderboard.scores);
+
 
 
 const game = new Phaser.Game(config);
+
+Dom().button.addEventListener('click', (e) => { 
+  if(Dom().hidden){
+    Dom().hidden.classList.replace('invisible', 'visible')
+  }
+
+  if(Dom().username.value !== '') {
+    localStorage.setItem(Dom().username.value, 100)
+    Dom().phaserGame.setAttribute('name', Dom().username.value)
+  }
+  e.preventDefault()
+})
+
 export default game;
