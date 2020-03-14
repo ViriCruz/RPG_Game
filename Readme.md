@@ -1,4 +1,3 @@
-## Rpg turn based game using phaser 3 and an api provided by microverse
 
 # Rpg turn based game using phaser 3 and an api provided by [@microverse](https://github.com/microverseinc/)
 
@@ -11,11 +10,11 @@
 The first step was to look for **What is an RPG game?**, then I looked for some inspiration, watching videos like **Top 10 nes RPG games**. After all this process, I started to brainstorm and just picked, the ones that looked realistic to build in 3 days, because 2 days were for study.
 
 I answered questions to myself like, who is going to be the main character?
-who is going to be the bad guy?
-how many bad guys will be there?
-what type of skills?
-what is the objective of the game?
-how the user will interact with the game?
+_who is going to be the bad guy?_,
+_how many bad guys will be there?_,
+_what type of skills?_,
+_what is the objective of the game?_,
+_how the user will interact with the game?_
 
 And so on. This bunch of questions helped a lot to design the game.
 
@@ -41,8 +40,10 @@ Windows/ Mac
 ### Local Install
 Clone project and run
 `npm install`
+
 After all dependencies install, run:
 `npm run start`
+
 The project runs on http://localhost:8080/
 
 
