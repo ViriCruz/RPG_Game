@@ -8,8 +8,7 @@
     "start": "webpack-dev-server --config webpack/base.js --open",
     "test": "jest",
     "watch": "jest --watch",
-    "dev": "node server.js",
-    "heroku-postbuild": "webpack -p" 
+    "dev": "node server.js"
   },
   "repository": {
     "type": "git",
