@@ -7,7 +7,9 @@
     "build": "webpack --config webpack/prod.js ",
     "start": "webpack-dev-server --config webpack/base.js --open",
     "test": "jest",
-    "watch": "jest --watch"
+    "watch": "jest --watch",
+    "dev": "node server.js",
+    "heroku-postbuild": "webpack -p" 
   },
   "repository": {
     "type": "git",
@@ -43,5 +45,8 @@
     "eslint-cli": "^1.1.1",
     "eslint-config-airbnb": "^18.0.1",
     "phaser": "^3.21.0"
+  },
+  "engines": {
+    "node": "11.9"
   }
 }
