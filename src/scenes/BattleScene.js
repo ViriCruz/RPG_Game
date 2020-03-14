@@ -1,8 +1,8 @@
 import Phaser from 'phaser';
 import PlayerCharacter from '../modules/PlayerCharacter';
 import Enemy from '../modules/Enemy';
-import Score from '../modules/Score'
-import Leaderboard from '../modules/Leaderboard'
+import Score from '../modules/Score';
+import Leaderboard from '../modules/Leaderboard';
 
 export default class BattleScene extends Phaser.Scene {
   constructor() {
@@ -10,10 +10,10 @@ export default class BattleScene extends Phaser.Scene {
   }
 
   create() {
-    this.score = new Score()
-    this.leaderboard = new Leaderboard()
-    this.playerHp = this.add.text(5, 5, ``, { fontSize: '12px', fill: '#000' });
-    this.enemyHp = this.add.text(5, 20, ``, { fontSize: '12px', fill: '#000' });
+    this.score = new Score();
+    this.leaderboard = new Leaderboard();
+    this.playerHp = this.add.text(5, 5, '', { fontSize: '12px', fill: '#000' });
+    this.enemyHp = this.add.text(5, 20, '', { fontSize: '12px', fill: '#000' });
     // make background green
     this.cameras.main.setBackgroundColor('rgba(0, 200, 0, 0.5)');
     this.startBattle();
@@ -48,7 +48,7 @@ export default class BattleScene extends Phaser.Scene {
       // call the enemy's attack function
       this.units[this.index].attack(this.heroes[r]);
       this.cameras.main.shake(300);
-      this.playerHp.setText(`player hp ${this.heroes[r].getHp()}`)
+      this.playerHp.setText(`player hp ${this.heroes[r].getHp()}`);
       // add timer for the next turn, so will have smooth gameplay
       this.time.addEvent({ delay: 3000, callback: this.nextTurn, callbackScope: this });
     }
@@ -58,7 +58,7 @@ export default class BattleScene extends Phaser.Scene {
     if (action === 'attack') {
       this.units[this.index].attack(this.enemies[target]);
       this.cameras.main.shake(300);
-      this.enemyHp.setText(`mage hp ${this.enemies[target].getHp()}`)
+      this.enemyHp.setText(`mage hp ${this.enemies[target].getHp()}`);
     }
     this.time.addEvent({ delay: 3000, callback: this.nextTurn, callbackScope: this });
   }
@@ -88,17 +88,17 @@ export default class BattleScene extends Phaser.Scene {
       }
     }
     if (victory) {
-       //Add score
-      this.score.checkScore()
-      this.score.addPoints()
+      // Add score
+      this.score.checkScore();
+      this.score.addPoints();
     } else if (gameOver) {
-      this.scene.remove('UIScene')
+      this.scene.remove('UIScene');
       this.scene.remove('WorldScene');
       // this.score.checkScore()
       // const userScore = this.score.getScore()
       // const user = this.score.getUser()
       // this.leaderboard.postScore(user,userScore)
-      this.scene.switch('Leaderboard')
+      this.scene.switch('Leaderboard');
     }
 
     return victory || gameOver;
@@ -113,7 +113,7 @@ export default class BattleScene extends Phaser.Scene {
       this.units[i].destroy();
     }
     this.units.length = 0;
-   
+
     // sleep the UI
     this.scene.sleep('UIScene');
     // return to WorldScene and sleep current BattleScene
@@ -123,18 +123,18 @@ export default class BattleScene extends Phaser.Scene {
   startBattle() {
     // player character - warrior
     const warrior = new PlayerCharacter(this, 250, 50, 'warrior', 4, 'Warrior', 100, 20);
-    this.playerHp.setText(`player hp ${warrior.getHp()}`)
+    this.playerHp.setText(`player hp ${warrior.getHp()}`);
     this.add.existing(warrior);
-    this.add.existing(this.playerHp)
+    this.add.existing(this.playerHp);
 
     // player character - mage
     // const mage = new PlayerCharacter(this, 250, 100, 'player', 4, 'Mage', 80, 8);
     // this.add.existing(mage);
 
     const mage = new Enemy(this, 50, 50, 'mage', null, 'Mage', 50, Phaser.Math.RND.between(3, warrior.getHp() - 1));
-    this.enemyHp.setText(`mage hp ${mage.getHp()}`)
+    this.enemyHp.setText(`mage hp ${mage.getHp()}`);
     this.add.existing(mage);
-    this.add.existing(this.enemyHp)
+    this.add.existing(this.enemyHp);
     // const dragonOrange = new Enemy(this, 50, 100, 'dragonOrange', null, 'Dragon2', 50, 3);
     // this.add.existing(dragonOrange);
 

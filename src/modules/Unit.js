@@ -35,6 +35,6 @@ export default class Unit extends Phaser.GameObjects.Sprite {
   }
 
   getHp() {
-    return this.hp
+    return this.hp;
   }
 }

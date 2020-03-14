@@ -3,8 +3,8 @@ import BootScene from './scenes/BootScene';
 import WorldScene from './scenes/WorldScene';
 import BattleScene from './scenes/BattleScene';
 import UIScene from './scenes/UIScene';
-import LeaderboardScene from './scenes/LeaderboardScene'
-import Dom from './modules/Dom'
+import LeaderboardScene from './scenes/LeaderboardScene';
+import Dom from './modules/Dom';
 
 
 export const config = {
@@ -17,34 +17,34 @@ export const config = {
   physics: {
     default: 'arcade',
     arcade: {
-      gravity: { y: 0 }
-    }
+      gravity: { y: 0 },
+    },
   },
   dom: {
-    createContainer: true
+    createContainer: true,
   },
   scene: [
     BootScene,
     WorldScene,
     BattleScene,
     LeaderboardScene,
-    UIScene
+    UIScene,
   ],
 };
 
 
 const game = new Phaser.Game(config);
 
-Dom().button.addEventListener('click', (e) => { 
-  if(Dom().username.value !== '') {
-    if(Dom().hidden){
-      Dom().hidden.classList.replace('invisible', 'visible')
+Dom().button.addEventListener('click', (e) => {
+  if (Dom().username.value !== '') {
+    if (Dom().hidden) {
+      Dom().hidden.classList.replace('invisible', 'visible');
     }
-    localStorage.setItem(Dom().username.value, 100)
-    Dom().phaserGame.setAttribute('name', Dom().username.value)
-    Dom().userInput.classList.add('invisible')
+    localStorage.setItem(Dom().username.value, 100);
+    Dom().phaserGame.setAttribute('name', Dom().username.value);
+    Dom().userInput.classList.add('invisible');
   }
-  e.preventDefault()
-})
+  e.preventDefault();
+});
 
 export default game;

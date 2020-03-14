@@ -63,12 +63,12 @@ export default class UIScene extends Phaser.Scene {
   }
 
   remapHeroes() {
-    const heroes = this.battleScene.heroes;
+    const { heroes } = this.battleScene;
     this.heroesMenu.remap(heroes);
   }
 
   remapEnemies() {
-    const enemies = this.battleScene.enemies;
+    const { enemies } = this.battleScene;
     this.enemiesMenu.remap(enemies);
   }
 

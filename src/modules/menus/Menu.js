@@ -46,17 +46,18 @@ export default class Menu extends Phaser.GameObjects.Container {
 
   // select the menu as a whole and an element with index from it
   select(index) {
-    if (!index) {
-      index = 0;
+    let idx = index;
+    if (!idx) {
+      idx = 0;
     }
     this.menuItems[this.menuItemIndex].deselect();
-    this.menuItemIndex = index;
+    this.menuItemIndex = idx;
     while (!this.menuItems[this.menuItemIndex].active) {
       this.menuItemIndex += 1;
       if (this.menuItemIndex >= this.menuItems.length) {
         this.menuItemIndex = 0;
       }
-      if (this.menuItemIndex === index) {
+      if (this.menuItemIndex === idx) {
         return;
       }
     }
@@ -71,9 +72,9 @@ export default class Menu extends Phaser.GameObjects.Container {
     this.selected = false;
   }
 
-  confirm() {
-    // when player confirms selection, do the action
-  }
+  // confirm() {
+  //   // when player confirms selection, do the action
+  // }
 
   clear() {
     for (let i = 0; i < this.menuItems.length; i += 1) {
