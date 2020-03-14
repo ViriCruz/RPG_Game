@@ -33,18 +33,16 @@ export const config = {
 };
 
 
-
-
 const game = new Phaser.Game(config);
 
 Dom().button.addEventListener('click', (e) => { 
-  if(Dom().hidden){
-    Dom().hidden.classList.replace('invisible', 'visible')
-  }
-
   if(Dom().username.value !== '') {
+    if(Dom().hidden){
+      Dom().hidden.classList.replace('invisible', 'visible')
+    }
     localStorage.setItem(Dom().username.value, 100)
     Dom().phaserGame.setAttribute('name', Dom().username.value)
+    Dom().userInput.classList.add('invisible')
   }
   e.preventDefault()
 })
