@@ -6,7 +6,8 @@
   "scripts": {
     "build": "webpack --config webpack/prod.js ",
     "start": "node --inspect server.js",
-    "test": "jest"
+    "test": "jest",
+    "dev": "webpack-dev-server --config webpack/base.js --open"
   },
   "repository": {
     "type": "git",
@@ -39,10 +40,9 @@
   },
   "dependencies": {
     "babel-jest": "^25.1.0",
-    "eslint-cli": "^1.1.1",
-    "eslint-config-airbnb": "^18.0.1",
     "express": "^4.17.1",
-    "phaser": "^3.21.0"
+    "phaser": "^3.21.0",
+    "regenerator-runtime": "^0.13.5"
   },
   "engines": {
     "node": "11.9"
