@@ -1,33 +1,29 @@
 export default class Leaderboard {
   constructor() {
     this.url = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/';
+    this.endpoint = 'games/JcJCxdFAUxhycd7ygOqt/scores/'
   }
 
-  postScore(name, score) {
-    const endpoint = 'games/hZNLe8ziB8YIZFe3yB6c/scores/';
-    fetch(this.url + endpoint, {
+  async loadScores() {
+    const response = await fetch(this.url + this.endpoint, {
+      mode: 'cors'
+    })
+    if (response.ok) return response.json();
+
+    throw new Error(response.status);
+  }
+
+  async postScore(score) {
+    const response = await fetch(this.url + this.endpoint, {
       mode: 'cors',
       method: 'POST', // or 'PUT'
-      body: JSON.stringify({
-        user: name,
-        score,
-      }), // data can be `string` or {object}!
+      body: JSON.stringify(score), // data can be `string` or {object}!
       headers: {
         'Content-Type': 'application/json',
       },
-    }).then((res) => res.json())
-      .catch((error) => error)
-      .then((response) => response);
-  }
-
-  getScores() {
-    const endpoint = 'games/hZNLe8ziB8YIZFe3yB6c/scores/';
-
-    return fetch(this.url + endpoint, {
-      mode: 'cors',
-      method: 'GET',
     })
-      .then((res) => res.json())
-      .catch((err) => err);
+    if (response.ok) return response.json();
+
+    throw new Error(response.status);
   }
 }
