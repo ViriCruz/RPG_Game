@@ -17,16 +17,15 @@ export default class LeaderboardScene extends Phaser.Scene {
     const username = this.score.getUser();
     this.userScore = {
       user: username,
-      score: points
-    }
+      score: points,
+    };
 
-    await this.leaderboard.postScore(this.userScore)
-    const data = await this.leaderboard.loadScores()
+    await this.leaderboard.postScore(this.userScore);
+    this.data = await this.leaderboard.loadScores();
 
-    this.best10 = this.leaderboard.bestPlayers(data)
-    
-    this.displayBestPlayers()
-   
+    this.best10 = this.bestPlayers();
+
+    this.displayBestPlayers();
   }
 
   displayBestPlayers() {
@@ -36,5 +35,10 @@ export default class LeaderboardScene extends Phaser.Scene {
       this.add.text(80, y, player.user, { fontSize: '12px', fill: '#fff', fontFamily: 'Arial' });
       this.add.text(160, y, player.score, { fontSize: '12px', fill: '#fff', fontFamily: 'Arial' });
     });
+  }
+
+  bestPlayers() {
+    return this.data.result.sort((score1, score2) => (score1.score < score2.score ? 1 : -1))
+      .filter((score, i) => i < 10);
   }
 }

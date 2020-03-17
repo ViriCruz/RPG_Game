@@ -94,10 +94,6 @@ export default class BattleScene extends Phaser.Scene {
     } else if (gameOver) {
       this.scene.remove('UIScene');
       this.scene.remove('WorldScene');
-      // this.score.checkScore()
-      // const userScore = this.score.getScore()
-      // const user = this.score.getUser()
-      // this.leaderboard.postScore(user,userScore)
       this.scene.switch('Leaderboard');
     }
 
@@ -127,17 +123,10 @@ export default class BattleScene extends Phaser.Scene {
     this.add.existing(warrior);
     this.add.existing(this.playerHp);
 
-    // player character - mage
-    // const mage = new PlayerCharacter(this, 250, 100, 'player', 4, 'Mage', 80, 8);
-    // this.add.existing(mage);
-
     const mage = new Enemy(this, 50, 50, 'mage', null, 'Mage', 50, Phaser.Math.RND.between(3, warrior.getHp() - 1));
     this.enemyHp.setText(`mage hp ${mage.getHp()}`);
     this.add.existing(mage);
     this.add.existing(this.enemyHp);
-    // const dragonOrange = new Enemy(this, 50, 100, 'dragonOrange', null, 'Dragon2', 50, 3);
-    // this.add.existing(dragonOrange);
-
     // array with heroes
     this.heroes = [warrior];
     // array with enemies

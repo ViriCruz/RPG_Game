@@ -1,15 +1,15 @@
-import 'regenerator-runtime'
+import 'regenerator-runtime';
 
 export default class Leaderboard {
   constructor() {
     this.url = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/';
-    this.endpoint = 'games/JcJCxdFAUxhycd7ygOqt/scores/'
+    this.endpoint = 'games/JcJCxdFAUxhycd7ygOqt/scores/';
   }
 
   async loadScores() {
     const response = await fetch(this.url + this.endpoint, {
-      mode: 'cors'
-    })
+      mode: 'cors',
+    });
     if (response.ok) return response.json();
 
     throw new Error(response.status);
@@ -23,14 +23,9 @@ export default class Leaderboard {
       headers: {
         'Content-Type': 'application/json',
       },
-    })
+    });
     if (response.ok) return response.json();
 
     throw new Error(response.status);
-  }
-
-  bestPlayers(data) {
-    return data.result.sort((score1, score2) => score1.score < score2.score ? 1 : -1)
-    .filter((score, i) => i < 10)
   }
 }
