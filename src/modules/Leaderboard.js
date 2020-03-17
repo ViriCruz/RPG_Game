@@ -1,3 +1,5 @@
+import 'regenerator-runtime'
+
 export default class Leaderboard {
   constructor() {
     this.url = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/';
@@ -25,5 +27,10 @@ export default class Leaderboard {
     if (response.ok) return response.json();
 
     throw new Error(response.status);
+  }
+
+  bestPlayers(data) {
+    return data.result.sort((score1, score2) => score1.score < score2.score ? 1 : -1)
+    .filter((score, i) => i < 10)
   }
 }

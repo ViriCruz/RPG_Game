@@ -20,11 +20,10 @@ export default class LeaderboardScene extends Phaser.Scene {
       score: points
     }
 
-    const post = await this.leaderboard.postScore(this.userScore)
+    await this.leaderboard.postScore(this.userScore)
     const data = await this.leaderboard.loadScores()
 
-    this.best10 = data.result.sort((score1, score2) => score1.score < score2.score ? 1 : -1)
-    .filter((score, i) => i < 10)
+    this.best10 = this.leaderboard.bestPlayers(data)
     
     this.displayBestPlayers()
    
