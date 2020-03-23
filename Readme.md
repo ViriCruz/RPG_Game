@@ -4,6 +4,8 @@
 > This is a 5 days project, part of Microverse, as a final solo project to apply all knowledge obtained during Javascript curriculum.
 
 ## Demo down below
+<p><img src="https://lh3.googleusercontent.com/eVq9TGaa1gWz-TTZXeFoJYp-xnDT2_tAhzgxyuMOzDz8CsNlC4YqX2MkQI5lOKHThidDYhKTDExdJhLfP1JxafAShOK2pexky97mDMDe=s1588" alt="phaser-3-game" /></p>
+
 [Demo](https://morning-island-03937.herokuapp.com/)
 
 ## How the game was design
